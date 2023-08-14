@@ -64,6 +64,14 @@ get_total_lines_declarative2(const vector<string> &files) {
     });
 }
 
+
+auto // folding from right to left
+get_total_lines_declarative3(const vector<string> &files) {
+    return accumulate(files.rbegin(), files.rend(),0,[](int total_lines,const string& file){
+        return total_lines + count_line(file);
+    });
+}
+
 vector<int>
 count_lines_imperative(const vector<string> &files) {
     vector<int> line_counts;
@@ -105,6 +113,7 @@ int main() {
     }
     cout << "total line count: " << get_total_lines_declarative(files) << endl;
     cout << "total line count (alternative): " << get_total_lines_declarative2(files) << endl;
+    cout << "total line count (folding from right to left): " << get_total_lines_declarative3(files) << endl;
     return 0;
 }
 
