@@ -8,12 +8,14 @@
 using namespace std;
 ifstream
 open_file(const string& file){
+    cout << "open_file() is called." << endl;
     return ifstream(file);
 }
 
 int
 count_lines_in_file(ifstream input_file){
-   return count(istreambuf_iterator<char>(input_file),istreambuf_iterator<char>(), '\n');
+    cout << "count_lines_in_file() is called." << endl;
+    return count(istreambuf_iterator<char>(input_file),istreambuf_iterator<char>(), '\n');
 }
 
 template <std::ranges::range R>
@@ -46,7 +48,20 @@ count_lines_declarative(const vector<string> &files) {
     vector<int> line_counts(files.size());
     transform(execution::par,files.begin(), files.end(), line_counts.begin(), count_line); // internal loop
     return line_counts;
+}
 
+auto
+get_total_lines_declarative(const vector<string> &files) {
+    vector<int> line_counts(files.size());
+    transform(execution::par,files.begin(), files.end(), line_counts.begin(), count_line); // internal loop
+    return accumulate(line_counts.begin(),line_counts.end(),0,plus<int>());
+}
+
+auto
+get_total_lines_declarative2(const vector<string> &files) {
+    return accumulate(files.begin(), files.end(),0,[](int total_lines,const string& file){
+        return total_lines + count_line(file);
+    });
 }
 
 vector<int>
@@ -88,6 +103,8 @@ int main() {
     for (auto &line_count: count_lines_declarative_ranges(files)) {
         cout << "declarative (ranges): " << line_count << endl;
     }
+    cout << "total line count: " << get_total_lines_declarative(files) << endl;
+    cout << "total line count (alternative): " << get_total_lines_declarative2(files) << endl;
     return 0;
 }
 
