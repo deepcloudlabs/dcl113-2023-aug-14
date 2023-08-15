@@ -3,7 +3,6 @@ project(functional_programming_exercises)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(functional_programming_exercises main.cpp)
 add_executable(exercise1 exercise1.cpp country.h country.cpp city.h city.cpp world-util.h world-util.cpp)
 add_executable(exercise2 exercise2.cpp country.h country.cpp city.h city.cpp world-util.h world-util.cpp)
 add_executable(exercise3 exercise3.cpp country.h country.cpp city.h city.cpp world-util.h world-util.cpp)
