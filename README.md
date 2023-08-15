@@ -4,8 +4,8 @@ These projects are created as part of the following training: DCL-113 "Functiona
 
 Please follow the link for the complete training catalog: https://www.deepcloudlabs.com/resources
 
-C++11 ile birlikte C++'da fonksiyonel programlama yapılabiliniyor. Standard Template Library (STL) ile fonksiyonel programlama birlikte kullanıldığında karmaşık kod parçalarını daha basit ve yalın hale indirgediği söylenebilir. Bu yazıda bu yalınlığı göstermek üzere örnekler sunacağım. Önce problem uzayını tanıtacağım. Yazılarımın çoğunda kullandığım dünya ülkeleri ve şehirlerinden yararlanacağım:
-
+With C++11, functional programming can be done in C++. When Standard Template Library (STL) and functional programming are used together, it can be said that it reduces complex code fragments to simpler and leaner. In this article I will provide examples to illustrate this simplicity. First, I will introduce the problem space. I will use the countries and cities of the world that I use in most of my articles:
+~~~
 city.h:
 
 #ifndef __city_h__
@@ -61,9 +61,9 @@ std::ostream& operator<<(std::ostream& out,const world::city& _city){
   << " ]";
  return out;
 }  
-
+~~~
 country.h:
-
+~~~
 #ifndef __country_h__
 #define __country_h__
 
@@ -95,9 +95,11 @@ namespace world {
 };
 std::ostream& operator<<(std::ostream&,const world::country&);
 #endif
+~~~
 
 country.cpp:
 
+~~~
 #include "country.h"
 
 namespace world {
@@ -133,11 +135,11 @@ std::ostream& operator<<(std::ostream& out,const world::country& _country){
   << " ]";
  return out; 
 }
+~~~
 
-country ve city sınıfları dünya ülke ve şehirlerini modeller. country ve city sınıfları arasında bire-çoklu ve bire-bir bir ilişki bulunuyor:
+country and city classes model the countries and cities of the world. there is a one-to-many and one-to-one relationship between country and city classes:
 
-
-
+~~~
 world-util.h:
 
 #ifndef __world_util_h__
@@ -207,7 +209,7 @@ void create_world(){
  std::for_each(cities.begin(),cities.end(),linkCityToCountry);
  std::for_each(countries.begin(),countries.end(),linkCapitalCityToCountry);
 }
-
+~~~
 Artık bu alan modeli üzerinden örnek problemler çözerek hem STL hem de fonksiyonel programlama çalışabiliriz:
 
 1. Dünyadaki kıtaların bir listesini hesaplayalım:
