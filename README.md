@@ -5,7 +5,7 @@ These projects are created as part of the following training: DCL-113 "Functiona
 Please follow the link for the complete training catalog: https://www.deepcloudlabs.com/resources
 
 With C++11, functional programming can be done in C++. When Standard Template Library (STL) and functional programming are used together, it can be said that it reduces complex code fragments to simpler and leaner. In this article I will provide examples to illustrate this simplicity. First, I will introduce the problem space. I will use the countries and cities of the world that I use in most of my articles:
-'''
+''' cpp
 city.h:
 
 #ifndef __city_h__
