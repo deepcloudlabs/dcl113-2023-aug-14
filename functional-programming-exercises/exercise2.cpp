@@ -2,7 +2,6 @@
 #include "country.h"
 #include "world-util.h"
 
-#include <set>
 #include <map>
 #include <iostream>
 #include <string>
@@ -16,7 +15,7 @@ using namespace world;
 map<int, shared_ptr<world::city>> cities;
 map<std::string, shared_ptr<world::country>> countries;
 
-int main(int argc, char *argv[]) {
+int main() {
     create_world();
 
     // Find the number of countries in each continent
@@ -24,7 +23,7 @@ int main(int argc, char *argv[]) {
     // country -- map --> (continent,1) -- reduce/group by --> map<string,int>
     auto group_by_continent_count_reducer =
             [] // capturing
-            (map<string, int> groups, pair<const string, shared_ptr<country>> &entry) // params
+                    (map<string, int> groups, pair<const string, shared_ptr<country>> &entry) // params
             { // body
                 groups[entry.second->continent]++;
                 return groups;
