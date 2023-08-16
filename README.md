@@ -547,7 +547,8 @@ country [ code=VEN, name=Venezuela, population=24170000, surface_area=912050, gn
 6. Her bir kıta için minimum, maksimum ve ortalama nüfus sayılarını hesaplayalım:
 
 exercise6.cpp:
-```
+
+``` cpp
 #include "city.h"
 #include "country.h" 
 #include "world-util.h" 
@@ -639,7 +640,7 @@ South America: statistics [ number of samples= 14, minimum=2000, maximum=1701150
 
 exercise7.cpp:
 
-```
+``` cpp
 #include "city.h"
 #include "country.h" 
 #include "world-util.h" 
@@ -790,12 +791,12 @@ Creating countries...done.
 city [ id=2331, name=Seoul, country [ code=KOR, name=South Korea, population=46844000, surface_area=99434, gnp=320749, continent=Asia, # of cities= 0 ], population=9981619 ]
 ```
 
-** Ranges
+## Ranges
 
 Yukarıdaki örnek problemlerin çözümünde STL kütüphanesini ve fonksiyonel programlamayı kullanmış olmak, kodlama üretkenliğimizi iyileştirmiş olsa da hala her çözümde tekrar ettiğimiz noktalar bulunuyor. Üstelik STL torbalaları üzerinde yaptığımız işlemlerin bellek kullanımı ve çalışma zamanı başarımında problemler bulunuyor. Bu problemlerin çözümü için geliştirilen iki kütüphane bulunuyor:
 
-Boost Range 2.0
-Range 3.0
+- Boost Range 2.0
+- Range 3.0
 
 İkinci çözüm Eric Niebler'e ait ve C++20 standardına eklenmek üzere kabul edilmiş durumda. 2020 yılında çıkacak C++'ın yeni sürümünde hazır olarak ulaşacağımız bir çözüm sunuyor. Eğer C++14 ve sonrası bir C++ derleyiciniz varsa şimdiden kullanabilirsiniz. Şimdi yukarıda çözdüğümüz problemlerin bir kaçını tekrar ele alalım ve Range v3 ile tekrar çözelim:
 
@@ -803,6 +804,7 @@ Range 3.0
 
 ranges1.cpp:
 
+``` cpp
 #include "city.h"
 #include "country.h"
 #include "world-util.h"
@@ -838,11 +840,13 @@ int main(int argc, char* argv[]){
         cout << *a_country << endl;   
     return 0;
 }
+```
 
 2. Ülkelerin adlarından oluşan bir liste oluşturmak istiyoruz:
 
 ranges2.cpp:
 
+``` cpp
 #include "city.h"
 #include "country.h" 
 #include "world-util.h" 
@@ -881,11 +885,13 @@ int main(int argc, char* argv[]){
 
     return 0;
 }
+```
 
 3. Dünya ülkelerini, GNP değerleri 25000'nin altında olan ülkeler ve 25000'nin üstünde olan ülkeler olarak iki sınıfta gruplayalım:
 
 ranges3.cpp:
 
+```
 #include "city.h"
 #include "country.h" 
 #include "world-util.h" 
@@ -945,3 +951,4 @@ int main(int argc, char* argv[]){
 
     return 0;
 }
+```
