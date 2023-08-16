@@ -719,6 +719,7 @@ int main(int argc, char* argv[]){
 
 Yukarıdaki uygulamayı çalıştırdığımızda aşağıdaki çıktıyı elde ediyoruz:
 
+```
 $ ./exercise7
 Creating cities...done.
 Creating countries...done.
