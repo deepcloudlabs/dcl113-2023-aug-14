@@ -65,7 +65,7 @@ std::ostream& operator<<(std::ostream& out,const world::city& _city){
 
 country.h:
 
-```
+``` cpp
 #ifndef __country_h__
 #define __country_h__
 
@@ -101,7 +101,7 @@ std::ostream& operator<<(std::ostream&,const world::country&);
 
 country.cpp:
 
-```
+``` cpp
 #include "country.h"
 
 namespace world {
@@ -141,7 +141,7 @@ std::ostream& operator<<(std::ostream& out,const world::country& _country){
 
 country and city classes model the countries and cities of the world. there is a one-to-many and one-to-one relationship between country and city classes:
 
-```
+``` cpp
 world-util.h:
 
 #ifndef __world_util_h__
@@ -219,6 +219,7 @@ Artık bu alan modeli üzerinden örnek problemler çözerek hem STL hem de fonk
 
 exercise1.cpp:
 
+``` cpp
 #include "city.h"
 #include "country.h" 
 #include "world-util.h" 
@@ -266,11 +267,13 @@ Europe
 North America
 Oceania
 South America
+```
 
 2. Her bir kıtada kaç ülke olduğunu bulalım:
 
 exercise2.cpp:
 
+``` cpp
 #include "city.h"
 #include "country.h" 
 #include "world-util.h" 
@@ -308,9 +311,11 @@ int main(int argc, char* argv[]){
   
  return 0;
 }
+```
 
 Yukarıdaki uygulamayı çalıştırdığımızda aşağıdaki çıktıyı elde ediyoruz:
 
+```
 $ ./exercise2
 Creating cities...done.
 Creating countries...done.
@@ -321,11 +326,13 @@ Europe: 46
 North America: 37
 Oceania: 28
 South America: 14
+```
 
 3. Dünyanın, GNP (Gross National Product)(=Gayri Safi Milli Hasıla) değerine göre en zengin ülkesini bulalım:
 
 exercise3.cpp:
 
+``` cpp
 #include "city.h"
 #include "country.h" 
 #include "world-util.h" 
@@ -357,16 +364,20 @@ int main(int argc, char* argv[]){
   
  return 0;
 }
+```
 
 Yukarıdaki uygulamayı çalıştırdığımızda aşağıdaki çıktıyı elde ediyoruz:
 
+```
 $ ./exercise3
 Creating cities...done.
 Creating countries...done.
 country [ code=USA, name=United States, population=278357000, surface_area=9.36352e+06, capital=3813, # of cities= 274 ]
+```
 
 4. Şimdi her kıtanın GNP (Gross National Product)(=Gayri Safi Milli Hasıla) değerine göre en zengin ülkesini bulalım:
 
+``` cpp
 exercise4.cpp:
 
 #include "city.h"
@@ -411,9 +422,11 @@ int main(int argc, char* argv[]){
   
  return 0;
 }
+```
 
 Yukarıdaki uygulamayı çalıştırdığımızda aşağıdaki çıktıyı elde ediyoruz:
 
+```
 $ ./exercise4
 Creating cities...done.
 Creating countries...done.
@@ -424,11 +437,13 @@ Europe: country [ code=DEU, name=Germany, population=82164700, surface_area=3570
 North America: country [ code=USA, name=United States, population=278357000, surface_area=9.36352e+06, gnp=8.5107e+06, # of cities= 274 ]
 Oceania: country [ code=AUS, name=Australia, population=18886000, surface_area=7.74122e+06, gnp=351182, # of cities= 14 ]
 South America: country [ code=BRA, name=Brazil, population=170115000, surface_area=8.5474e+06, gnp=776739, # of cities= 250 ]
+```
 
 5. Her bir kıtadaki ülkelerin listesini alalım:
 
 exercise5.cpp:
 
+``` cpp
 #include "city.h"
 #include "country.h" 
 #include "world-util.h" 
@@ -471,9 +486,11 @@ int main(int argc, char* argv[]){
   
  return 0;
 }
+```
 
 Yukarıdaki uygulamayı çalıştırdığımızda aşağıdaki çıktıyı elde ediyoruz:
 
+```
 $ ./exercise5
 Creating cities...done.
 Creating countries...done.
@@ -525,11 +542,12 @@ country [ code=ARG, name=Argentina, population=37032000, surface_area=2.7804e+06
 .
 .
 country [ code=VEN, name=Venezuela, population=24170000, surface_area=912050, gnp=95023, continent=South America, # of cities= 41 ]
+```
 
 6. Her bir kıta için minimum, maksimum ve ortalama nüfus sayılarını hesaplayalım:
 
 exercise6.cpp:
-
+```
 #include "city.h"
 #include "country.h" 
 #include "world-util.h" 
@@ -600,9 +618,11 @@ int main(int argc, char* argv[]){
   
  return 0;
 }
+```
 
 Yukarıdaki uygulamayı çalıştırdığımızda aşağıdaki çıktıyı elde ediyoruz:
 
+```
 $ ./exercise6
 Creating cities...done.
 Creating countries...done.
@@ -613,11 +633,13 @@ Europe: statistics [ number of samples= 46, minimum=1000, maximum=146934000, sum
 North America: statistics [ number of samples= 37, minimum=7000, maximum=278357000, sum=4.82993e+08, average=1.30539e+07 ]
 Oceania: statistics [ number of samples= 28, minimum=0, maximum=18886000, sum=3.04012e+07, average=1.08576e+06 ]
 South America: statistics [ number of samples= 14, minimum=2000, maximum=170115000, sum=3.4578e+08, average=2.46986e+07 ]
+```
 
 7. Ülkelerin, en az nüfusa ve en çok nüfusa sahip şehirlerini bulalım:
 
 exercise7.cpp:
 
+```
 #include "city.h"
 #include "country.h" 
 #include "world-util.h" 
@@ -712,11 +734,13 @@ Zambia's statistics:
 statistics [ Luanshya ( 118100 ),  Luanshya ( 118100 ) ]
 Zimbabwe's statistics:
 statistics [ Gweru ( 128037 ),  Gweru ( 128037 ) ]
+```
 
 8. En kalabalık başkenti bulalım:
 
 exercise8.cpp:
 
+``` cpp
 #include "city.h"
 #include "country.h" 
 #include "world-util.h" 
@@ -755,15 +779,18 @@ int main(int argc, char* argv[]){
   
         return 0;
 }
+```
 
 Yukarıdaki uygulamayı çalıştırdığımızda aşağıdaki çıktıyı elde ediyoruz:
 
+```
 $ ./exercise8
 Creating cities...done.
 Creating countries...done.
 city [ id=2331, name=Seoul, country [ code=KOR, name=South Korea, population=46844000, surface_area=99434, gnp=320749, continent=Asia, # of cities= 0 ], population=9981619 ]
+```
 
-Ranges
+** Ranges
 
 Yukarıdaki örnek problemlerin çözümünde STL kütüphanesini ve fonksiyonel programlamayı kullanmış olmak, kodlama üretkenliğimizi iyileştirmiş olsa da hala her çözümde tekrar ettiğimiz noktalar bulunuyor. Üstelik STL torbalaları üzerinde yaptığımız işlemlerin bellek kullanımı ve çalışma zamanı başarımında problemler bulunuyor. Bu problemlerin çözümü için geliştirilen iki kütüphane bulunuyor:
 
